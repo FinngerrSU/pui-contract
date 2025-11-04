@@ -1,0 +1,10 @@
+cargo install --locked --git https://github.com/MystenLabs/sui.git --branch devnet sui --features tracing
+sui move manage-package --environment devnet \
+                  --network-id 2467f426 \
+                  --original-id 0x9447459d657151e768149b8c02a2293824f744df6fc83ba14025c4138241bd7e \
+                  --latest-id 0x9447459d657151e768149b8c02a2293824f744df6fc83ba14025c4138241bd7e \
+                  --version-number 1
+
+sui client ptb \
+--assign pack @0xdc97d5df9e8f3835552599c67b42e2c92afe439cab32e1e79d452943f8fbe480 \
+--move-call pack::pui::initialize_tracker 
